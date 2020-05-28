@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test</title>
+    <title>Gremlin学习</title>
     <url>/2020/05/13/test/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<blockquote>
+<p>Gremlin语言是图数据库最主流的查询语言，是Apache TinkerPop框架下规范的图语言，相当于SQL之于关系型数据库。为了图数据库使用者更好的掌握Gremlin这门图语言，我们对Gremlin Steps进行了分类与总结</p>
+</blockquote>
+<p>####环境准备</p>
+<p> 使用JanusGraph的docker镜像可以快速的帮助我们搭建一个实验环境</p>
+<p> <strong>启动一个JanusGraph服务实例</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --name janusgraph-default janusgraph&#x2F;janusgraph:latest</span><br></pre></td></tr></table></figure>
+
+<p><strong>启动一个Gremlin Console</strong></p>
+<p>使用这个Gremlin Console就可以使用Gremlin对我们的图数据库进行相关的操作</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ docker run --rm --link janusgraph-default:janusgraph -e GREMLIN_REMOTE_HOSTS&#x3D;janusgraph \</span><br><span class="line">    -it janusgraph&#x2F;janusgraph:latest .&#x2F;bin&#x2F;gremlin.sh</span><br><span class="line"></span><br><span class="line">         \,,,&#x2F;</span><br><span class="line">         (o o)</span><br><span class="line">-----oOOo-(3)-oOOo-----</span><br><span class="line">plugin activated: janusgraph.imports</span><br><span class="line">plugin activated: tinkerpop.server</span><br><span class="line">plugin activated: tinkerpop.utilities</span><br><span class="line">plugin activated: tinkerpop.hadoop</span><br><span class="line">plugin activated: tinkerpop.spark</span><br><span class="line">plugin activated: tinkerpop.tinkergraph</span><br><span class="line">gremlin&gt; :remote connect tinkerpop.server conf&#x2F;remote.yaml</span><br><span class="line">&#x3D;&#x3D;&gt;Configured janusgraph&#x2F;172.17.0.2:8182</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
-        <category>Diary</category>
+        <category>数据库</category>
       </categories>
       <tags>
-        <tag>PS3</tag>
-        <tag>Games</tag>
+        <tag>图数据库</tag>
+        <tag>Gremlin</tag>
       </tags>
   </entry>
   <entry>
