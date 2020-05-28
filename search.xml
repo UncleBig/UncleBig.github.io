@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Gremlin学习</title>
+    <title>Gremlin学习：基本操作</title>
     <url>/2020/05/13/test/</url>
     <content><![CDATA[<blockquote>
 <p>Gremlin语言是图数据库最主流的查询语言，是Apache TinkerPop框架下规范的图语言，相当于SQL之于关系型数据库。为了图数据库使用者更好的掌握Gremlin这门图语言，我们对Gremlin Steps进行了分类与总结</p>
@@ -14,6 +14,8 @@
 <p>使用这个Gremlin Console就可以使用Gremlin对我们的图数据库进行相关的操作</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ docker run --rm --link janusgraph-default:janusgraph -e GREMLIN_REMOTE_HOSTS&#x3D;janusgraph \</span><br><span class="line">    -it janusgraph&#x2F;janusgraph:latest .&#x2F;bin&#x2F;gremlin.sh</span><br><span class="line"></span><br><span class="line">         \,,,&#x2F;</span><br><span class="line">         (o o)</span><br><span class="line">-----oOOo-(3)-oOOo-----</span><br><span class="line">plugin activated: janusgraph.imports</span><br><span class="line">plugin activated: tinkerpop.server</span><br><span class="line">plugin activated: tinkerpop.utilities</span><br><span class="line">plugin activated: tinkerpop.hadoop</span><br><span class="line">plugin activated: tinkerpop.spark</span><br><span class="line">plugin activated: tinkerpop.tinkergraph</span><br><span class="line">gremlin&gt; :remote connect tinkerpop.server conf&#x2F;remote.yaml</span><br><span class="line">&#x3D;&#x3D;&gt;Configured janusgraph&#x2F;172.17.0.2:8182</span><br></pre></td></tr></table></figure>
 
+<p>先添加一个简单的图关系进行测试</p>
+<p><img src="http://ww1.sinaimg.cn/large/5e602211gy1gf8bi2ht2lj20o90jcabk.jpg" alt="graph.png"></p>
 <h4 id="图基本操作-Steps"><a href="#图基本操作-Steps" class="headerlink" title="图基本操作:Steps"></a>图基本操作:Steps</h4><ul>
 <li>V():查询顶点，一般作为图查询的第1步，后面可以续接的语句种类繁多</li>
 </ul>
@@ -73,5 +75,18 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>gremlin学习：边的操作</title>
+    <url>/2020/05/28/gremlin%E5%AD%A6%E4%B9%A0%EF%BC%9A%E8%BE%B9%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p><img src="http://ww1.sinaimg.cn/large/5e602211gy1gf8bi2ht2lj20o90jcabk.jpg" alt="graph.png"></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>图数据库</tag>
+        <tag>Gremlin</tag>
+      </tags>
   </entry>
 </search>
