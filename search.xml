@@ -3,7 +3,8 @@
   <entry>
     <title>Gremlin学习：基本操作</title>
     <url>/2020/05/13/test/</url>
-    <content><![CDATA[<p>Gremlin语言是图数据库最主流的查询语言，是Apache TinkerPop框架下规范的图语言，相当于SQL之于关系型数据库。为了图数据库使用者更好的掌握Gremlin这门图语言，我们对Gremlin Steps进行了分类与总结</p>
+    <content><![CDATA[<img src="http://ww1.sinaimg.cn/large/5e602211gy1gf8e58nw03j20kk07z76s.jpg" width = "900" height = "600" alt="git" align=center />
+Gremlin语言是图数据库最主流的查询语言，是Apache TinkerPop框架下规范的图语言，相当于SQL之于关系型数据库。为了图数据库使用者更好的掌握Gremlin这门图语言，我们对Gremlin Steps进行了分类与总结
 <a id="more"></a>
 
 
