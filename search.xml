@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/05/13/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Gremlin学习：基本操作</title>
-    <url>/2020/05/13/test/</url>
+    <url>/2020/05/13/gremlin%E5%AD%A6%E4%B9%A01%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<img src="http://ww1.sinaimg.cn/large/5e602211gy1gf8e58nw03j20kk07z76s.jpg" width = "900" height = "600" alt="git" align=center />
 Gremlin语言是图数据库最主流的查询语言，是Apache TinkerPop框架下规范的图语言，相当于SQL之于关系型数据库。为了图数据库使用者更好的掌握Gremlin这门图语言，我们对Gremlin Steps进行了分类与总结
 <a id="more"></a>
@@ -63,27 +81,49 @@ Gremlin语言是图数据库最主流的查询语言，是Apache TinkerPop框架
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/05/13/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>gremlin学习：边的操作</title>
-    <url>/2020/05/28/gremlin%E5%AD%A6%E4%B9%A0%EF%BC%9A%E8%BE%B9%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p><img src="http://ww1.sinaimg.cn/large/5e602211gy1gf8bi2ht2lj20o90jcabk.jpg" alt="graph.png"></p>
+    <url>/2020/05/28/gremlin%E5%AD%A6%E4%B9%A02%EF%BC%9A%E8%BE%B9%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<img src="http://ww1.sinaimg.cn/large/5e602211gy1gf92ltl77zj20gt08i40d.jpg" width = "900" height = "600" alt="git" align=center />
+介绍了Gremlin的基本操作，下边我们来介绍一些边相关的Steps：out()、in()、both()、outE()、inE()、bothE()、outV()、inV()、bothV()、otherV()边遍历是指通过顶点来访问与其有关联边的邻接顶点（或者仅访问邻接边），边遍历是图数据库与图计算的核心
+<a id="more"></a>
+
+<p>####边的遍历</p>
+<p>​    我们还是以上一篇的例子来解释一下边遍历的相关Steps，图的关系如下：</p>
+<p><img src="http://ww1.sinaimg.cn/large/5e602211gy1gf8bi2ht2lj20o90jcabk.jpg" alt="graph.png"></p>
+<p>#####顶点为基准的Steps（如上图中的顶点“james”）：</p>
+<ul>
+<li><code>out(label)</code>: 根据指定的EdgeLabel来访问顶点的OUT方向邻接点（可以是零个EdgeLabel，代表所有类型边；也可以一个或多个EdgeLabel，代表任意给定EdgeLabel的边，下同）</li>
+<li><code>in(label)</code>: 根据指定的EdgeLabel来访问顶点的IN方向邻接点</li>
+<li><code>both(label)</code>: 根据指定的EdgeLabel来访问顶点的双向邻接点</li>
+<li><code>outE(label)</code>: 根据指定的EdgeLabel来访问顶点的OUT方向邻接边</li>
+<li><code>inE(label)</code>: 根据指定的EdgeLabel来访问顶点的IN方向邻接边</li>
+<li><code>bothE(label)</code>: 根据指定的EdgeLabel来访问顶点的双向邻接边</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gremlin&gt; :&gt; g.V().has(&#39;name&#39;,&#39;james&#39;).out()</span><br><span class="line">&#x3D;&#x3D;&gt;v[4296]</span><br><span class="line">&#x3D;&#x3D;&gt;v[4344]</span><br><span class="line">&#x3D;&#x3D;&gt;v[4184]</span><br><span class="line">&#x3D;&#x3D;&gt;v[4176]</span><br><span class="line">&#x2F;&#x2F;加上value看起来更直观些</span><br><span class="line">gremlin&gt; :&gt; g.V().has(&#39;name&#39;,&#39;james&#39;).out().valueMap()</span><br><span class="line">&#x3D;&#x3D;&gt;&#123;name&#x3D;[charles]&#125;</span><br><span class="line">&#x3D;&#x3D;&gt;&#123;name&#x3D;[peter]&#125;</span><br><span class="line">&#x3D;&#x3D;&gt;&#123;name&#x3D;[chris]&#125;</span><br><span class="line">&#x3D;&#x3D;&gt;&#123;name&#x3D;[gremlin]&#125;</span><br></pre></td></tr></table></figure>
+
+<p>#####边为基准的Steps（如上图中的边“friends”）：</p>
+<ul>
+<li><code>outV()</code>: 访问边的出顶点（注意：这里是以边为基准，上述Step均以顶点为基准），出顶点是指边的起始顶点</li>
+<li><code>inV()</code>: 访问边的入顶点，入顶点是指边的目标顶点，也就是箭头指向的顶点</li>
+<li><code>bothV()</code>: 访问边的双向顶点</li>
+<li><code>otherV()</code>: 访问边的伙伴顶点，即相对于基准顶点而言的另一端的顶点</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gremlin&gt; :&gt; g.E().hasLabel(&#39;friends&#39;).outV()</span><br><span class="line">&#x3D;&#x3D;&gt;v[4184]</span><br><span class="line">gremlin&gt; :&gt; g.E().hasLabel(&#39;friends&#39;).outV().valueMap()</span><br><span class="line">&#x3D;&#x3D;&gt;&#123;name&#x3D;[chris]&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Step-Has"><a href="#Step-Has" class="headerlink" title="Step Has"></a>Step Has</h4><p>在上边的例子中大家都看到了，我们在定位到需要的边和顶点的时候需要用到一些条件进行筛选，在众多Gremlin的语句中，有一大类是filter类型，顾名思义，就是对输入的对象进行条件判断，只有满足过滤条件的对象才可以通过filter进入下一步，has语句是filter类型语句的代表，能够以顶点和边的属性作为过滤条件，决定哪些对象可以通过。has语句包括很多变种：</p>
+<ul>
+<li>hasLabel(labels…): object的label与labels列表中任何一个匹配就可以通过</li>
+<li>hasId(ids…): object的id满足ids列表中的任何一个就可以通过</li>
+<li>has(key, value): 包含属性“key=value”的object通过，作用于顶点或者边</li>
+<li>has(label, key, value): 包含属性“key=value”且label值匹配的object通过，作用于顶点或者边</li>
+<li>has(key, predicate): 包含键为key且对应的value满足predicate的object通过，作用于顶点或者边</li>
+<li>hasKey(keys…): object的属性键包含所有的keys列表成员才能通过，作用于顶点属性,直接将<code>hasKey()</code>作用于顶点，仅后端是<code>Cassandra</code>时支持 仅后端是<code>Cassandra</code>时支持</li>
+<li>hasValue(values…): object的属性值包含所有的values列表成员才能通过，作用于顶点属性,直接将<code>hasValue()</code>作用于顶点，仅后端是<code>Cassandra</code>时支持</li>
+<li>has(key): 包含键为key的属性的object通过，作用于顶点或者边</li>
+<li>hasNot(key): 不包含键为key的属性的object通过，作用于顶点或者边</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;找出所有label是person的节点</span><br><span class="line">gremlin&gt; :&gt; g.V().hasLabel(&#39;person&#39;).valueMap()</span><br><span class="line">&#x3D;&#x3D;&gt;&#123;name&#x3D;[chris]&#125;</span><br><span class="line">&#x3D;&#x3D;&gt;&#123;name&#x3D;[james]&#125;</span><br><span class="line">&#x3D;&#x3D;&gt;&#123;name&#x3D;[charles]&#125;</span><br><span class="line">&#x3D;&#x3D;&gt;&#123;name&#x3D;[peter]&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>数据库</category>

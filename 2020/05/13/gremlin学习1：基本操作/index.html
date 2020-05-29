@@ -79,19 +79,22 @@
 
 
 
+<meta name="description" content="Gremlin语言是图数据库最主流的查询语言，是Apache TinkerPop框架下规范的图语言，相当于SQL之于关系型数据库。为了图数据库使用者更好的掌握Gremlin这门图语言，我们对Gremlin Steps进行了分类与总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gremlin学习：边的操作">
-<meta property="og:url" content="http://yoursite.com/2020/05/28/gremlin%E5%AD%A6%E4%B9%A0%EF%BC%9A%E8%BE%B9%E7%9A%84%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:title" content="Gremlin学习：基本操作">
+<meta property="og:url" content="http://yoursite.com/2020/05/13/gremlin%E5%AD%A6%E4%B9%A01%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="小胖杂货铺">
+<meta property="og:description" content="Gremlin语言是图数据库最主流的查询语言，是Apache TinkerPop框架下规范的图语言，相当于SQL之于关系型数据库。为了图数据库使用者更好的掌握Gremlin这门图语言，我们对Gremlin Steps进行了分类与总结">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/5e602211gy1gf8e58nw03j20kk07z76s.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/5e602211gy1gf8bi2ht2lj20o90jcabk.jpg">
-<meta property="article:published_time" content="2020-05-28T09:05:42.000Z">
-<meta property="article:modified_time" content="2020-05-28T10:01:39.498Z">
+<meta property="article:published_time" content="2020-05-13T14:21:52.000Z">
+<meta property="article:modified_time" content="2020-05-29T03:09:13.082Z">
 <meta property="article:author" content="大叔小胖">
 <meta property="article:tag" content="图数据库">
 <meta property="article:tag" content="Gremlin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/5e602211gy1gf8bi2ht2lj20o90jcabk.jpg">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/5e602211gy1gf8e58nw03j20kk07z76s.jpg">
 
 
 
@@ -121,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/28/gremlin学习：边的操作/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/05/13/gremlin学习1：基本操作/"/>
 
 
 
 
 
-  <title>gremlin学习：边的操作 | 小胖杂货铺</title>
+  <title>Gremlin学习：基本操作 | 小胖杂货铺</title>
   
 
 
@@ -312,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/28/gremlin%E5%AD%A6%E4%B9%A0%EF%BC%9A%E8%BE%B9%E7%9A%84%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/13/gremlin%E5%AD%A6%E4%B9%A01%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大叔小胖">
@@ -329,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">gremlin学习：边的操作</h1>
+          <h1 class="post-title" itemprop="name headline">Gremlin学习：基本操作</h1>
         
 
         <div class="post-meta">
@@ -341,8 +344,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-28T17:05:42+08:00">
-                2020-05-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-13T22:21:52+08:00">
+                2020-05-13
               </time>
             
 
@@ -401,7 +404,56 @@
       
 
       
-        <p><img src="http://ww1.sinaimg.cn/large/5e602211gy1gf8bi2ht2lj20o90jcabk.jpg" alt="graph.png"></p>
+        <img src="http://ww1.sinaimg.cn/large/5e602211gy1gf8e58nw03j20kk07z76s.jpg" width = "900" height = "600" alt="git" align=center />
+Gremlin语言是图数据库最主流的查询语言，是Apache TinkerPop框架下规范的图语言，相当于SQL之于关系型数据库。为了图数据库使用者更好的掌握Gremlin这门图语言，我们对Gremlin Steps进行了分类与总结
+<a id="more"></a>
+
+
+
+<h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><p> 使用JanusGraph的docker镜像可以快速的帮助我们搭建一个实验环境</p>
+<p> <strong>启动一个JanusGraph服务实例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name janusgraph-default janusgraph&#x2F;janusgraph:latest</span><br></pre></td></tr></table></figure>
+
+<p><strong>启动一个Gremlin Console</strong></p>
+<p>使用这个Gremlin Console就可以使用Gremlin对我们的图数据库进行相关的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --rm --link janusgraph-default:janusgraph -e GREMLIN_REMOTE_HOSTS&#x3D;janusgraph \</span><br><span class="line">    -it janusgraph&#x2F;janusgraph:latest .&#x2F;bin&#x2F;gremlin.sh</span><br><span class="line"></span><br><span class="line">         \,,,&#x2F;</span><br><span class="line">         (o o)</span><br><span class="line">-----oOOo-(3)-oOOo-----</span><br><span class="line">plugin activated: janusgraph.imports</span><br><span class="line">plugin activated: tinkerpop.server</span><br><span class="line">plugin activated: tinkerpop.utilities</span><br><span class="line">plugin activated: tinkerpop.hadoop</span><br><span class="line">plugin activated: tinkerpop.spark</span><br><span class="line">plugin activated: tinkerpop.tinkergraph</span><br><span class="line">gremlin&gt; :remote connect tinkerpop.server conf&#x2F;remote.yaml</span><br><span class="line">&#x3D;&#x3D;&gt;Configured janusgraph&#x2F;172.17.0.2:8182</span><br></pre></td></tr></table></figure>
+
+<p>先添加一个简单的图关系进行测试</p>
+<img src="http://ww1.sinaimg.cn/large/5e602211gy1gf8bi2ht2lj20o90jcabk.jpg" alt="graph.png"  />
+
+<h4 id="图基本操作-Steps"><a href="#图基本操作-Steps" class="headerlink" title="图基本操作:Steps"></a>图基本操作:Steps</h4><ul>
+<li>V():查询顶点，一般作为图查询的第1步，后面可以续接的语句种类繁多</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 注意：g 代表的是整个图</span><br><span class="line">&#x2F;&#x2F; 一切查询都是以图开始</span><br><span class="line">gremlin&gt; :&gt; g.V()</span><br><span class="line">&#x3D;&#x3D;&gt;v[4176]</span><br><span class="line">&#x3D;&#x3D;&gt;v[4184]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>E()：查询边，一般作为图查询的第1步，后面可以续接的语句种类繁多</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; :&gt; g.E()</span><br><span class="line">&#x3D;&#x3D;&gt;e[1l7-388-5jp-3bc][4184-friends-&gt;4296]</span><br><span class="line">&#x3D;&#x3D;&gt;e[1l8-38g-2dx-3bc][4192-knows-&gt;4296]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>id():获取顶点或者边的id</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; :&gt; g.E().id()</span><br><span class="line">&#x3D;&#x3D;&gt;1l7-388-5jp-3bc</span><br><span class="line">&#x3D;&#x3D;&gt;1l8-38g-2dx-3bc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>label():获取顶点、边的label</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; :&gt; g.E().label()</span><br><span class="line">&#x3D;&#x3D;&gt;friends</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>properties()：获取顶点、边的属性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; :&gt; g.V().properties()</span><br><span class="line">&#x3D;&#x3D;&gt;vp[name-&gt;gremlin]</span><br><span class="line">&#x3D;&#x3D;&gt;vp[name-&gt;chris]</span><br><span class="line">&#x3D;&#x3D;&gt;vp[name-&gt;james]</span><br><span class="line">&#x3D;&#x3D;&gt;vp[name-&gt;charles]</span><br><span class="line">&#x3D;&#x3D;&gt;vp[name-&gt;peter]</span><br></pre></td></tr></table></figure>
+
+<p>此外 <code>properties()</code>还可以和 <code>key()</code>、<code>value()</code>搭配使用，以获取属性的名称或值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; :&gt; g.V().properties().key()</span><br><span class="line">&#x3D;&#x3D;&gt;name</span><br><span class="line">&#x3D;&#x3D;&gt;name</span><br><span class="line">gremlin&gt; :&gt; g.V().properties().value()</span><br><span class="line">&#x3D;&#x3D;&gt;gremlin</span><br><span class="line">&#x3D;&#x3D;&gt;chris</span><br><span class="line">&#x3D;&#x3D;&gt;james</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>valueMap():获取顶点、边的属性， <code>valueMap()</code>与 <code>properties()</code>不同的地方是：它们返回的结构不一样，后者将所有的属性扁平化到一个大列表里面，一个元素代表一个属性；前者保持一个顶点或一条边的属性作为一组，每一组由若干属性的键值对组成</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gremlin&gt; :&gt; g.V().valueMap()</span><br><span class="line">&#x3D;&#x3D;&gt;&#123;name&#x3D;[gremlin]&#125;</span><br><span class="line">&#x3D;&#x3D;&gt;&#123;name&#x3D;[chris]&#125;</span><br><span class="line">&#x3D;&#x3D;&gt;&#123;name&#x3D;[james]&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -434,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/05/13/test/" rel="next" title="Gremlin学习：基本操作">
-                <i class="fa fa-chevron-left"></i> Gremlin学习：基本操作
+              <a href="/2020/05/13/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -443,6 +495,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/28/gremlin%E5%AD%A6%E4%B9%A02%EF%BC%9A%E8%BE%B9%E7%9A%84%E6%93%8D%E4%BD%9C/" rel="prev" title="gremlin学习：边的操作">
+                gremlin学习：边的操作 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -494,8 +550,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -555,6 +620,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#环境准备"><span class="nav-number">1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图基本操作-Steps"><span class="nav-number">2.</span> <span class="nav-text">图基本操作:Steps</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
