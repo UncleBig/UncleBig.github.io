@@ -19,7 +19,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Gremlin学习：基本操作</title>
+    <title>Gremlin学习1：基本操作</title>
     <url>/2020/05/13/gremlin%E5%AD%A6%E4%B9%A01%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<img src="http://ww1.sinaimg.cn/large/5e602211gy1gf8e58nw03j20kk07z76s.jpg" width = "900" height = "600" alt="git" align=center />
 Gremlin语言是图数据库最主流的查询语言，是Apache TinkerPop框架下规范的图语言，相当于SQL之于关系型数据库。为了图数据库使用者更好的掌握Gremlin这门图语言，我们对Gremlin Steps进行了分类与总结
@@ -81,7 +81,7 @@ Gremlin语言是图数据库最主流的查询语言，是Apache TinkerPop框架
       </tags>
   </entry>
   <entry>
-    <title>gremlin学习：边的操作</title>
+    <title>Gremlin学习2：边的操作</title>
     <url>/2020/05/28/gremlin%E5%AD%A6%E4%B9%A02%EF%BC%9A%E8%BE%B9%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<img src="http://ww1.sinaimg.cn/large/5e602211gy1gf92ltl77zj20gt08i40d.jpg" width = "900" height = "600" alt="git" align=center />
 介绍了Gremlin的基本操作，下边我们来介绍一些边相关的Steps：out()、in()、both()、outE()、inE()、bothE()、outV()、inV()、bothV()、otherV()边遍历是指通过顶点来访问与其有关联边的邻接顶点（或者仅访问邻接边），边遍历是图数据库与图计算的核心
