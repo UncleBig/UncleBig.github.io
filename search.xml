@@ -87,11 +87,9 @@ Gremlin语言是图数据库最主流的查询语言，是Apache TinkerPop框架
 介绍了Gremlin的基本操作，下边我们来介绍一些边相关的Steps：out()、in()、both()、outE()、inE()、bothE()、outV()、inV()、bothV()、otherV()边遍历是指通过顶点来访问与其有关联边的邻接顶点（或者仅访问邻接边），边遍历是图数据库与图计算的核心
 <a id="more"></a>
 
-<p>####边的遍历</p>
-<p>​    我们还是以上一篇的例子来解释一下边遍历的相关Steps，图的关系如下：</p>
+<h4 id="边的遍历"><a href="#边的遍历" class="headerlink" title="边的遍历"></a>边的遍历</h4><p>​    我们还是以上一篇的例子来解释一下边遍历的相关Steps，图的关系如下：</p>
 <p><img src="http://ww1.sinaimg.cn/large/5e602211gy1gf8bi2ht2lj20o90jcabk.jpg" alt="graph.png"></p>
-<p>#####顶点为基准的Steps（如上图中的顶点“james”）：</p>
-<ul>
+<h5 id="顶点为基准的Steps（如上图中的顶点“james”）："><a href="#顶点为基准的Steps（如上图中的顶点“james”）：" class="headerlink" title="顶点为基准的Steps（如上图中的顶点“james”）："></a>顶点为基准的Steps（如上图中的顶点“james”）：</h5><ul>
 <li><code>out(label)</code>: 根据指定的EdgeLabel来访问顶点的OUT方向邻接点（可以是零个EdgeLabel，代表所有类型边；也可以一个或多个EdgeLabel，代表任意给定EdgeLabel的边，下同）</li>
 <li><code>in(label)</code>: 根据指定的EdgeLabel来访问顶点的IN方向邻接点</li>
 <li><code>both(label)</code>: 根据指定的EdgeLabel来访问顶点的双向邻接点</li>
