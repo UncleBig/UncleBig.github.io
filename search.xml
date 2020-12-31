@@ -1,57 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Gremlin学习2：边的操作</title>
-    <url>/2020/05/28/gremlin%E5%AD%A6%E4%B9%A02%EF%BC%9A%E8%BE%B9%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<img src="http://ww1.sinaimg.cn/large/5e602211gy1gf92ltl77zj20gt08i40d.jpg" width = "900" height = "600" alt="git" align=center />
-介绍了Gremlin的基本操作，下边我们来介绍一些边相关的Steps：out()、in()、both()、outE()、inE()、bothE()、outV()、inV()、bothV()、otherV()边遍历是指通过顶点来访问与其有关联边的邻接顶点（或者仅访问邻接边），边遍历是图数据库与图计算的核心
-<a id="more"></a>
-
-<h4 id="边的遍历"><a href="#边的遍历" class="headerlink" title="边的遍历"></a>边的遍历</h4><p>​    我们还是以上一篇的例子来解释一下边遍历的相关Steps，图的关系如下：</p>
-<p><img src="http://ww1.sinaimg.cn/large/5e602211gy1gf8bi2ht2lj20o90jcabk.jpg" alt="graph.png"></p>
-<h5 id="顶点为基准的Steps（如上图中的顶点“james”）："><a href="#顶点为基准的Steps（如上图中的顶点“james”）：" class="headerlink" title="顶点为基准的Steps（如上图中的顶点“james”）："></a>顶点为基准的Steps（如上图中的顶点“james”）：</h5><ul>
-<li><code>out(label)</code>: 根据指定的EdgeLabel来访问顶点的OUT方向邻接点（可以是零个EdgeLabel，代表所有类型边；也可以一个或多个EdgeLabel，代表任意给定EdgeLabel的边，下同）</li>
-<li><code>in(label)</code>: 根据指定的EdgeLabel来访问顶点的IN方向邻接点</li>
-<li><code>both(label)</code>: 根据指定的EdgeLabel来访问顶点的双向邻接点</li>
-<li><code>outE(label)</code>: 根据指定的EdgeLabel来访问顶点的OUT方向邻接边</li>
-<li><code>inE(label)</code>: 根据指定的EdgeLabel来访问顶点的IN方向邻接边</li>
-<li><code>bothE(label)</code>: 根据指定的EdgeLabel来访问顶点的双向邻接边</li>
-</ul>
-<figure class="highlight haml"><table><tr><td class="code"><pre><code class="hljs haml">gremlin&gt; :&gt; g.V().has('name','james').out()<br>=<span class="ruby">=&gt;v[<span class="hljs-number">4296</span>]</span><br><span class="ruby">==&gt;v[<span class="hljs-number">4344</span>]</span><br><span class="ruby">==&gt;v[<span class="hljs-number">4184</span>]</span><br><span class="ruby">==&gt;v[<span class="hljs-number">4176</span>]</span><br><span class="ruby">/<span class="hljs-regexp">/加上value看起来更直观些</span></span><br><span class="ruby">gremlin&gt; <span class="hljs-symbol">:&gt;</span> g.V().has(<span class="hljs-string">'name'</span>,<span class="hljs-string">'james'</span>).out().valueMap()</span><br><span class="ruby">==&gt;&#123;name=[charles]&#125;</span><br><span class="ruby">==&gt;&#123;name=[peter]&#125;</span><br><span class="ruby">==&gt;&#123;name=[chris]&#125;</span><br><span class="ruby">==&gt;&#123;name=[gremlin]&#125;</span><br></code></pre></td></tr></table></figure>
-
-<p>#####边为基准的Steps（如上图中的边“friends”）：</p>
-<ul>
-<li><code>outV()</code>: 访问边的出顶点（注意：这里是以边为基准，上述Step均以顶点为基准），出顶点是指边的起始顶点</li>
-<li><code>inV()</code>: 访问边的入顶点，入顶点是指边的目标顶点，也就是箭头指向的顶点</li>
-<li><code>bothV()</code>: 访问边的双向顶点</li>
-<li><code>otherV()</code>: 访问边的伙伴顶点，即相对于基准顶点而言的另一端的顶点</li>
-</ul>
-<figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml">gremlin&gt; :&gt; g.<span class="hljs-constructor">E()</span>.has<span class="hljs-constructor">Label('<span class="hljs-params">friends</span>')</span>.out<span class="hljs-constructor">V()</span><br>==&gt;v<span class="hljs-literal">[<span class="hljs-number">4184</span>]</span><br>gremlin&gt; :&gt; g.<span class="hljs-constructor">E()</span>.has<span class="hljs-constructor">Label('<span class="hljs-params">friends</span>')</span>.out<span class="hljs-constructor">V()</span>.value<span class="hljs-constructor">Map()</span><br>==&gt;&#123;name=<span class="hljs-literal">[<span class="hljs-identifier">chris</span>]</span>&#125;<br></code></pre></td></tr></table></figure>
-
-<h4 id="Step-Has"><a href="#Step-Has" class="headerlink" title="Step Has"></a>Step Has</h4><p>在上边的例子中大家都看到了，我们在定位到需要的边和顶点的时候需要用到一些条件进行筛选，在众多Gremlin的语句中，有一大类是filter类型，顾名思义，就是对输入的对象进行条件判断，只有满足过滤条件的对象才可以通过filter进入下一步，has语句是filter类型语句的代表，能够以顶点和边的属性作为过滤条件，决定哪些对象可以通过。has语句包括很多变种：</p>
-<ul>
-<li>hasLabel(labels…): object的label与labels列表中任何一个匹配就可以通过</li>
-<li>hasId(ids…): object的id满足ids列表中的任何一个就可以通过</li>
-<li>has(key, value): 包含属性“key=value”的object通过，作用于顶点或者边</li>
-<li>has(label, key, value): 包含属性“key=value”且label值匹配的object通过，作用于顶点或者边</li>
-<li>has(key, predicate): 包含键为key且对应的value满足predicate的object通过，作用于顶点或者边</li>
-<li>hasKey(keys…): object的属性键包含所有的keys列表成员才能通过，作用于顶点属性,直接将<code>hasKey()</code>作用于顶点，仅后端是<code>Cassandra</code>时支持 仅后端是<code>Cassandra</code>时支持</li>
-<li>hasValue(values…): object的属性值包含所有的values列表成员才能通过，作用于顶点属性,直接将<code>hasValue()</code>作用于顶点，仅后端是<code>Cassandra</code>时支持</li>
-<li>has(key): 包含键为key的属性的object通过，作用于顶点或者边</li>
-<li>hasNot(key): 不包含键为key的属性的object通过，作用于顶点或者边</li>
-</ul>
-<figure class="highlight haml"><table><tr><td class="code"><pre><code class="hljs haml"><span class="hljs-comment">//找出所有label是person的节点</span><br>gremlin&gt; :&gt; g.V().hasLabel('person').valueMap()<br>=<span class="ruby">=&gt;&#123;name=[chris]&#125;</span><br><span class="ruby">==&gt;&#123;name=[james]&#125;</span><br><span class="ruby">==&gt;&#123;name=[charles]&#125;</span><br><span class="ruby">==&gt;&#123;name=[peter]&#125;</span><br></code></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>图数据库</tag>
-        <tag>Gremlin</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Gremlin学习1：基本操作</title>
     <url>/2020/05/13/gremlin%E5%AD%A6%E4%B9%A01%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<img src="http://ww1.sinaimg.cn/large/5e602211gy1gf8e58nw03j20kk07z76s.jpg" width = "900" height = "600" alt="git" align=center />
@@ -103,6 +52,57 @@ Gremlin语言是图数据库最主流的查询语言，是Apache TinkerPop框架
 <li>valueMap():获取顶点、边的属性， <code>valueMap()</code>与 <code>properties()</code>不同的地方是：它们返回的结构不一样，后者将所有的属性扁平化到一个大列表里面，一个元素代表一个属性；前者保持一个顶点或一条边的属性作为一组，每一组由若干属性的键值对组成</li>
 </ul>
 <figure class="highlight haml"><table><tr><td class="code"><pre><code class="hljs haml">gremlin&gt; :&gt; g.V().valueMap()<br>=<span class="ruby">=&gt;&#123;name=[gremlin]&#125;</span><br><span class="ruby">==&gt;&#123;name=[chris]&#125;</span><br><span class="ruby">==&gt;&#123;name=[james]&#125;</span><br></code></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>图数据库</tag>
+        <tag>Gremlin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Gremlin学习2：边的操作</title>
+    <url>/2020/05/28/gremlin%E5%AD%A6%E4%B9%A02%EF%BC%9A%E8%BE%B9%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<img src="http://ww1.sinaimg.cn/large/5e602211gy1gf92ltl77zj20gt08i40d.jpg" width = "900" height = "600" alt="git" align=center />
+介绍了Gremlin的基本操作，下边我们来介绍一些边相关的Steps：out()、in()、both()、outE()、inE()、bothE()、outV()、inV()、bothV()、otherV()边遍历是指通过顶点来访问与其有关联边的邻接顶点（或者仅访问邻接边），边遍历是图数据库与图计算的核心
+<a id="more"></a>
+
+<h4 id="边的遍历"><a href="#边的遍历" class="headerlink" title="边的遍历"></a>边的遍历</h4><p>​    我们还是以上一篇的例子来解释一下边遍历的相关Steps，图的关系如下：</p>
+<p><img src="http://ww1.sinaimg.cn/large/5e602211gy1gf8bi2ht2lj20o90jcabk.jpg" alt="graph.png"></p>
+<h5 id="顶点为基准的Steps（如上图中的顶点“james”）："><a href="#顶点为基准的Steps（如上图中的顶点“james”）：" class="headerlink" title="顶点为基准的Steps（如上图中的顶点“james”）："></a>顶点为基准的Steps（如上图中的顶点“james”）：</h5><ul>
+<li><code>out(label)</code>: 根据指定的EdgeLabel来访问顶点的OUT方向邻接点（可以是零个EdgeLabel，代表所有类型边；也可以一个或多个EdgeLabel，代表任意给定EdgeLabel的边，下同）</li>
+<li><code>in(label)</code>: 根据指定的EdgeLabel来访问顶点的IN方向邻接点</li>
+<li><code>both(label)</code>: 根据指定的EdgeLabel来访问顶点的双向邻接点</li>
+<li><code>outE(label)</code>: 根据指定的EdgeLabel来访问顶点的OUT方向邻接边</li>
+<li><code>inE(label)</code>: 根据指定的EdgeLabel来访问顶点的IN方向邻接边</li>
+<li><code>bothE(label)</code>: 根据指定的EdgeLabel来访问顶点的双向邻接边</li>
+</ul>
+<figure class="highlight haml"><table><tr><td class="code"><pre><code class="hljs haml">gremlin&gt; :&gt; g.V().has('name','james').out()<br>=<span class="ruby">=&gt;v[<span class="hljs-number">4296</span>]</span><br><span class="ruby">==&gt;v[<span class="hljs-number">4344</span>]</span><br><span class="ruby">==&gt;v[<span class="hljs-number">4184</span>]</span><br><span class="ruby">==&gt;v[<span class="hljs-number">4176</span>]</span><br><span class="ruby">/<span class="hljs-regexp">/加上value看起来更直观些</span></span><br><span class="ruby">gremlin&gt; <span class="hljs-symbol">:&gt;</span> g.V().has(<span class="hljs-string">'name'</span>,<span class="hljs-string">'james'</span>).out().valueMap()</span><br><span class="ruby">==&gt;&#123;name=[charles]&#125;</span><br><span class="ruby">==&gt;&#123;name=[peter]&#125;</span><br><span class="ruby">==&gt;&#123;name=[chris]&#125;</span><br><span class="ruby">==&gt;&#123;name=[gremlin]&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>#####边为基准的Steps（如上图中的边“friends”）：</p>
+<ul>
+<li><code>outV()</code>: 访问边的出顶点（注意：这里是以边为基准，上述Step均以顶点为基准），出顶点是指边的起始顶点</li>
+<li><code>inV()</code>: 访问边的入顶点，入顶点是指边的目标顶点，也就是箭头指向的顶点</li>
+<li><code>bothV()</code>: 访问边的双向顶点</li>
+<li><code>otherV()</code>: 访问边的伙伴顶点，即相对于基准顶点而言的另一端的顶点</li>
+</ul>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml">gremlin&gt; :&gt; g.<span class="hljs-constructor">E()</span>.has<span class="hljs-constructor">Label('<span class="hljs-params">friends</span>')</span>.out<span class="hljs-constructor">V()</span><br>==&gt;v<span class="hljs-literal">[<span class="hljs-number">4184</span>]</span><br>gremlin&gt; :&gt; g.<span class="hljs-constructor">E()</span>.has<span class="hljs-constructor">Label('<span class="hljs-params">friends</span>')</span>.out<span class="hljs-constructor">V()</span>.value<span class="hljs-constructor">Map()</span><br>==&gt;&#123;name=<span class="hljs-literal">[<span class="hljs-identifier">chris</span>]</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="Step-Has"><a href="#Step-Has" class="headerlink" title="Step Has"></a>Step Has</h4><p>在上边的例子中大家都看到了，我们在定位到需要的边和顶点的时候需要用到一些条件进行筛选，在众多Gremlin的语句中，有一大类是filter类型，顾名思义，就是对输入的对象进行条件判断，只有满足过滤条件的对象才可以通过filter进入下一步，has语句是filter类型语句的代表，能够以顶点和边的属性作为过滤条件，决定哪些对象可以通过。has语句包括很多变种：</p>
+<ul>
+<li>hasLabel(labels…): object的label与labels列表中任何一个匹配就可以通过</li>
+<li>hasId(ids…): object的id满足ids列表中的任何一个就可以通过</li>
+<li>has(key, value): 包含属性“key=value”的object通过，作用于顶点或者边</li>
+<li>has(label, key, value): 包含属性“key=value”且label值匹配的object通过，作用于顶点或者边</li>
+<li>has(key, predicate): 包含键为key且对应的value满足predicate的object通过，作用于顶点或者边</li>
+<li>hasKey(keys…): object的属性键包含所有的keys列表成员才能通过，作用于顶点属性,直接将<code>hasKey()</code>作用于顶点，仅后端是<code>Cassandra</code>时支持 仅后端是<code>Cassandra</code>时支持</li>
+<li>hasValue(values…): object的属性值包含所有的values列表成员才能通过，作用于顶点属性,直接将<code>hasValue()</code>作用于顶点，仅后端是<code>Cassandra</code>时支持</li>
+<li>has(key): 包含键为key的属性的object通过，作用于顶点或者边</li>
+<li>hasNot(key): 不包含键为key的属性的object通过，作用于顶点或者边</li>
+</ul>
+<figure class="highlight haml"><table><tr><td class="code"><pre><code class="hljs haml"><span class="hljs-comment">//找出所有label是person的节点</span><br>gremlin&gt; :&gt; g.V().hasLabel('person').valueMap()<br>=<span class="ruby">=&gt;&#123;name=[chris]&#125;</span><br><span class="ruby">==&gt;&#123;name=[james]&#125;</span><br><span class="ruby">==&gt;&#123;name=[charles]&#125;</span><br><span class="ruby">==&gt;&#123;name=[peter]&#125;</span><br></code></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
